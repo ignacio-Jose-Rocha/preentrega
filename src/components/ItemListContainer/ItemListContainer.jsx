@@ -7,11 +7,16 @@ function ItemListContainer() {
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
+  const loadProducts = () => {
+    setLoading(true)
     getProducts().then(data => {
       setProducts(data)
       setLoading(false)
     })
+  }
+
+  useEffect(() => {
+    loadProducts()
   }, [])
 
   if (loading) return <div className="loading">Cargando productos...</div>
@@ -19,7 +24,7 @@ function ItemListContainer() {
   return (
     <div className="item-list-container">
       <h1>Productos</h1>
-      <ItemList products={products} />
+      <ItemList products={products} onDelete={loadProducts} />
     </div>
   )
 }

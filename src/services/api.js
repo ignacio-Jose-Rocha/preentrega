@@ -1,4 +1,4 @@
-const API_URL = 'https://67680e0fcbf3d7cefd3a0e2e.mockapi.io/api/products'
+const API_URL = 'https://692115e4512fb4140bdf5438.mockapi.io/products/products'
 
 let localProducts = []
 
