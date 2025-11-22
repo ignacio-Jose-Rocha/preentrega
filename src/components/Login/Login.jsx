@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuthContext } from '../../context/AuthContext'
+import { useCartContext } from '../../context/CartContext'
 import './Login.css'
 
 function Login() {
@@ -8,6 +9,7 @@ function Login() {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const { login, user, logout } = useAuthContext()
+  const { clearCart } = useCartContext()
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
@@ -24,7 +26,7 @@ function Login() {
       <div className="login-container">
         <div className="login-form">
           <h2>Bienvenido, {user.username}</h2>
-          <button onClick={logout} className="logout-btn">
+          <button onClick={() => logout(clearCart)} className="logout-btn">
             Cerrar Sesión
           </button>
         </div>

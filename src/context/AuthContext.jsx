@@ -34,7 +34,10 @@ export function AuthProvider({ children }) {
     return false
   }
 
-  const logout = () => {
+  const logout = (clearCart) => {
+    if (user?.role === 'cliente' && clearCart) {
+      clearCart()
+    }
     setUser(null)
     localStorage.removeItem('user')
   }
