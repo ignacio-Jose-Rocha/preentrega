@@ -12,14 +12,9 @@ function Nav() {
       <Link to="/" className="navbar-brand">eCommerce</Link>
       <div className="navbar-nav">
         <Link to="/" className="nav-link">Productos</Link>
-        {user?.role !== 'admin' && (
-          <Link to="/cart" className="nav-link">
-            Carrito ({getCartQuantity()})
-          </Link>
-        )}
-        {user?.role === 'admin' && (
-          <Link to="/admin/products" className="nav-link">Admin</Link>
-        )}
+        <Link to="/cart" className="nav-link">
+          Carrito ({getCartQuantity()})
+        </Link>
         <Link to="/login" className="nav-link">{user ? user.username : 'Login'}</Link>
       </div>
     </nav>

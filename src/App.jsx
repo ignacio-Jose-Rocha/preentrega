@@ -7,7 +7,6 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import Cart from './components/Cart/Cart'
 import Login from './components/Login/Login'
 import ProductFormContainer from './components/ProductFormContainer/ProductFormContainer'
-import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
 import AdminRoute from './components/AdminRoute/AdminRoute'
 
 function App() {
@@ -19,9 +18,9 @@ function App() {
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
             <Route path="/product/:id" element={<ItemDetailContainer />} />
-            <Route path="/cart" element={<ProtectedRoute><Cart /></ProtectedRoute>} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/admin/products" element={<AdminRoute><ProductFormContainer /></AdminRoute>} />
+            <Route path="/admin" element={<AdminRoute><ProductFormContainer /></AdminRoute>} />
           </Routes>
         </CartProvider>
       </AuthProvider>
