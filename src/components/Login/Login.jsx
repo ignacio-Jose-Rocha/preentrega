@@ -12,8 +12,9 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (login(username, password)) {
-      navigate('/')
+    const loggedUser = login(username, password)
+    if (loggedUser) {
+      navigate(loggedUser.role === 'admin' ? '/admin' : '/')
     } else {
       setError('Credenciales incorrectas')
     }

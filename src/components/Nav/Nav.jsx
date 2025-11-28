@@ -15,6 +15,7 @@ function Nav() {
         <Link to="/cart" className="nav-link">
           Carrito ({getCartQuantity()})
         </Link>
+        {user?.role === 'admin' && <Link to="/admin" className="nav-link">Gestión</Link>}
         <Link to="/login" className="nav-link">{user ? user.username : 'Login'}</Link>
       </div>
     </nav>

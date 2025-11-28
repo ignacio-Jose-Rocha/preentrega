@@ -29,9 +29,9 @@ export function AuthProvider({ children }) {
     if (userData) {
       setUser(userData)
       localStorage.setItem('user', JSON.stringify(userData))
-      return true
+      return userData
     }
-    return false
+    return null
   }
 
   const logout = () => {
